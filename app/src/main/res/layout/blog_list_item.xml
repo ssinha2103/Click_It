@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/White">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/main_blog_post"
@@ -36,8 +37,8 @@
                 android:id="@+id/blog_user_name"
                 android:layout_width="106dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="28dp"
                 android:text="@string/user_name"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/blog_user_image"
@@ -60,17 +61,17 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="29dp"
                 android:layout_marginEnd="16dp"
+                android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/blog_title"
-                app:srcCompat="@drawable/blog_loading_image"
-                android:contentDescription="@string/todo" />
+                app:srcCompat="@drawable/blog_loading_image" />
 
             <TextView
                 android:id="@+id/blog_title"
-                android:layout_width="308dp"
-                android:layout_height="22dp"
+                android:layout_width="279dp"
+                android:layout_height="26dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="32dp"
@@ -81,11 +82,11 @@
 
             <TextView
                 android:id="@+id/blog_desc"
-                android:layout_width="347dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_width="307dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="32dp"
                 android:layout_marginBottom="32dp"
                 android:text="@string/textview"
                 app:layout_constraintBottom_toBottomOf="parent"

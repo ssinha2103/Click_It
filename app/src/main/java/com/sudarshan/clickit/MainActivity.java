@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentHome = new FragmentHome();
         notificationFragment = new NotificationFragment();
         accountFragment = new AccountFragment();
+        replaceFragment(fragmentHome);
 
 
         mainBottonNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
