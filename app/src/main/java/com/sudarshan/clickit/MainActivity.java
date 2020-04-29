@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -37,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView mainBottonNav;
 
 
+    private FragmentHome fragmentHome;
+    private NotificationFragment notificationFragment;
+    private AccountFragment accountFragment;
+
+
 
 
     @Override
@@ -56,6 +63,38 @@ public class MainActivity extends AppCompatActivity {
 
         mainBottonNav = findViewById(R.id.mainBottomNavBar);
 
+
+        //Fragments
+
+        fragmentHome = new FragmentHome();
+        notificationFragment = new NotificationFragment();
+        accountFragment = new AccountFragment();
+
+
+        mainBottonNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId())
+                {
+                    case R.id.bottom_action_home:
+                        replaceFragment(fragmentHome);
+                        return true;
+
+                    case R.id.bottom_action_notification:
+                        replaceFragment(notificationFragment);
+                        return true;
+
+                    case R.id.bottom_action_account:
+                        replaceFragment(accountFragment);
+                        return true;
+
+                    default:
+                        return false;
+                }
+
+            }
+        });
 
 
         addPostBtn = findViewById(R.id.addPostBtn);
@@ -124,5 +163,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void replaceFragment(Fragment fragment){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.main_container, fragment);
+        fragmentTransaction.commit();
     }
 }
