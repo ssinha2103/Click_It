@@ -1,18 +1,30 @@
 package com.sudarshan.clickit;
 
+
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class BlogPost {
 
     public String user_id, image_url, desc, title;
+    public Date time_stamp;
+
+
+
+//    public BlogPost(Date time_stamp) {
+//        this.time_stamp = time_stamp;
+//    }
+
+
 
     public BlogPost(){}
 
-    public BlogPost(String user_id, String image_url, String desc, String title, Timestamp time_stamp) {
+    public BlogPost(String user_id, String image_url, String desc, String title, Date time_stamp) {
         this.user_id = user_id;
         this.image_url = image_url;
         this.desc = desc;
         this.title = title;
+        this.time_stamp = time_stamp;
     }
 
     public String getUser_id() {
@@ -45,6 +57,14 @@ public class BlogPost {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Date getTime_stamp() {
+        return time_stamp;
+    }
+
+    public void setTime_stamp(Date time_stamp) {
+        this.time_stamp = time_stamp;
     }
 
 

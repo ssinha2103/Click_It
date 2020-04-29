@@ -45,7 +45,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/blog_data"
+                android:id="@+id/blog_date"
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
                 android:layout_marginStart="28dp"
@@ -56,13 +56,14 @@
 
             <ImageView
                 android:id="@+id/blog_image"
-                android:layout_width="365dp"
-                android:layout_height="234dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="29dp"
                 android:layout_marginEnd="16dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/todo"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/blog_title"
@@ -70,20 +71,20 @@
 
             <TextView
                 android:id="@+id/blog_title"
-                android:layout_width="279dp"
-                android:layout_height="26dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="32dp"
                 android:text="@string/post_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/blog_data" />
+                app:layout_constraintTop_toBottomOf="@+id/blog_date" />
 
             <TextView
                 android:id="@+id/blog_desc"
-                android:layout_width="307dp"
-                android:layout_height="25dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="32dp"

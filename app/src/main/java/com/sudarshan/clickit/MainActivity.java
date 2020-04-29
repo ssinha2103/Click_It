@@ -66,46 +66,48 @@ public class MainActivity extends AppCompatActivity {
 
         //Fragments
 
-        fragmentHome = new FragmentHome();
-        notificationFragment = new NotificationFragment();
-        accountFragment = new AccountFragment();
-        replaceFragment(fragmentHome);
 
+        if (mAuth.getCurrentUser()!= null)
+        {
+            fragmentHome = new FragmentHome();
+            notificationFragment = new NotificationFragment();
+            accountFragment = new AccountFragment();
+            replaceFragment(fragmentHome);
+            mainBottonNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        mainBottonNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId())
+                    {
+                        case R.id.bottom_action_home:
+                            replaceFragment(fragmentHome);
+                            return true;
 
-                switch (item.getItemId())
-                {
-                    case R.id.bottom_action_home:
-                        replaceFragment(fragmentHome);
-                        return true;
+                        case R.id.bottom_action_notification:
+                            replaceFragment(notificationFragment);
+                            return true;
 
-                    case R.id.bottom_action_notification:
-                        replaceFragment(notificationFragment);
-                        return true;
+                        case R.id.bottom_action_account:
+                            replaceFragment(accountFragment);
+                            return true;
 
-                    case R.id.bottom_action_account:
-                        replaceFragment(accountFragment);
-                        return true;
+                        default:
+                            return false;
+                    }
 
-                    default:
-                        return false;
                 }
-
-            }
-        });
+            });
 
 
-        addPostBtn = findViewById(R.id.addPostBtn);
-        addPostBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NewPostActivity.class);
-                startActivity(intent);
-            }
-        });
+            addPostBtn = findViewById(R.id.addPostBtn);
+            addPostBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, NewPostActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
 
     }

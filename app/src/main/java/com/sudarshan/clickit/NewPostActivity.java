@@ -91,7 +91,6 @@ public class NewPostActivity extends AppCompatActivity {
                 CropImage.activity()
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .setMinCropResultSize(512, 512)
-                        .setAspectRatio(1,1)
                         .start(NewPostActivity.this);
 
             }
@@ -102,7 +101,7 @@ public class NewPostActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final ProgressDialog progressDialog = new ProgressDialog(NewPostActivity.this);
-                progressDialog.setMessage("Your post is getting online, please wait ...");
+                progressDialog.setMessage("Your post is getting live, please wait ...");
                 progressDialog.show();
                 final String title = newPostTitle.getText().toString();
                 final String desc = newPostDescription.getText().toString();
