@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/white_background"
+    tools:context=".NewPostActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/newPostToolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:background="@color/White"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/newPostImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/myblue">
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/newPostImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="45dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toTopOf="@+id/newPostTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newPostToolbar"
+        app:srcCompat="@drawable/add_image" />
+
+    <EditText
+        android:id="@+id/newPostTitle"
+        android:layout_width="368dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="34dp"
+        android:autofillHints=""
+        android:background="@drawable/input_background"
+        android:drawableStart="@drawable/play"
+        android:drawablePadding="10dp"
+        android:hint="@string/title_of_the_post"
+        android:inputType="textEmailAddress"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/newPostDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newPostImage" />
+
+    <EditText
+        android:id="@+id/newPostDescription"
+        android:layout_width="398dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="72dp"
+        android:autofillHints=""
+        android:background="@drawable/input_background"
+        android:drawableStart="@drawable/multiplay"
+        android:drawablePadding="40dp"
+        android:gravity="start|top"
+        android:hint="@string/post_description"
+        android:inputType="textMultiLine"
+        android:maxLines="150"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newPostTitle" />
+
+    <Button
+        android:id="@+id/new_post_save_btn"
+        android:layout_width="192dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/submit_button"
+        android:text="@string/post"
+        android:textAllCaps="false"
+        android:textColor="@color/White"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

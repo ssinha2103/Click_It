@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context=".RegisterActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="185dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/welcome_to"
+        android:contentDescription="@string/todo" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/logo"
+        android:layout_width="167dp"
+        android:layout_height="81dp"
+        android:layout_gravity="center"
+
+        android:layout_marginBottom="11dp"
+        android:layout_weight="4"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/icon_lotii" />
+
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="167dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:srcCompat="@drawable/click_it"
+        android:contentDescription="@string/todo" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="297dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/reg_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:srcCompat="@drawable/sign_up_to_see_photo"
+        android:contentDescription="@string/todo" />
+
+    <EditText
+        android:id="@+id/reg_email"
+        android:layout_width="309dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="27dp"
+        android:autofillHints=""
+        android:background="@drawable/input_background"
+        android:drawableStart="@drawable/user"
+        android:drawablePadding="10dp"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="309dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:autofillHints=""
+        android:background="@drawable/input_background"
+        android:drawableStart="@drawable/lock"
+        android:drawablePadding="10dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_email" />
+
+    <EditText
+        android:id="@+id/confirm_password"
+        android:layout_width="309dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="17dp"
+        android:autofillHints=""
+        android:background="@drawable/input_background"
+        android:drawableStart="@drawable/lock"
+        android:drawablePadding="10dp"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="220dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/submit_button"
+        android:text="@string/register"
+        android:textAllCaps="false"
+        android:textColor="@color/White"
+        app:layout_constraintBottom_toTopOf="@+id/reg_login_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_password" />
+
+    <Button
+        android:id="@+id/reg_login_btn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/white_background"
+        android:text="@string/already_have_an_account_log_in_now"
+        android:textAllCaps="false"
+        android:textColor="@color/myblue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
