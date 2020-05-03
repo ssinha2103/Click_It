@@ -83,13 +83,13 @@ public class MainActivity extends AppCompatActivity {
                             replaceFragment(fragmentHome);
                             return true;
 
-                        case R.id.bottom_action_notification:
-                            replaceFragment(notificationFragment);
-                            return true;
-
-                        case R.id.bottom_action_account:
-                            replaceFragment(accountFragment);
-                            return true;
+//                        case R.id.bottom_action_notification:
+//                            replaceFragment(notificationFragment);
+//                            return true;
+//
+//                        case R.id.bottom_action_account:
+//                            replaceFragment(accountFragment);
+//                            return true;
 
                         default:
                             return false;

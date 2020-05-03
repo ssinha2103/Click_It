@@ -23,7 +23,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="blog_post_date">Blog Post Date</string>
     <string name="post_title">Post Title</string>
-
+    <string name="_0_likes">0 Likes</string>
 
 
 </resources>

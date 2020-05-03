@@ -78,30 +78,33 @@ public class FragmentHome extends Fragment {
 
                     if (reachedBotton)
                     {
-                        String desc = lastVisible.getString("desc");
-                        Toast.makeText(container.getContext(), "Reached" + desc, Toast.LENGTH_SHORT).show();
+//                        String desc = lastVisible.getString("desc");
+//                        Toast.makeText(container.getContext(), "Reached" + desc, Toast.LENGTH_SHORT).show();
 
                         loadMorePost();
                     }
                 }
             });
 
-            Query firstQuery = firebaseFirestore.collection("Posts").orderBy("time_stamp", Query.Direction.DESCENDING).limit(3);
+            Query firstQuery = firebaseFirestore.collection("Posts").orderBy("time_stamp", Query.Direction.DESCENDING).limit(10);
 
             firstQuery.addSnapshotListener(getActivity(),new EventListener<QuerySnapshot>() {
                 @Override
                 public void onEvent(QuerySnapshot queryDocumentSnapshots, FirebaseFirestoreException e) {
 
-                    if (isFirstPageFirstLoad)
-                    {
-                        lastVisible = queryDocumentSnapshots.getDocuments().get(queryDocumentSnapshots.size() -1);
-                    }
+//                    if (isFirstPageFirstLoad)
+//                    {
+//                        lastVisible = queryDocumentSnapshots.getDocuments().get(queryDocumentSnapshots.size() -1);
+//                    }
+                    lastVisible = queryDocumentSnapshots.getDocuments().get(queryDocumentSnapshots.size() -1);
 
                     for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges())
                     {
                         if (doc.getType() == DocumentChange.Type.ADDED)
                         {
-                            BlogPost blog_post = doc.getDocument().toObject(BlogPost.class);
+                            String blogPostId = doc.getDocument().getId();
+
+                            BlogPost blog_post = doc.getDocument().toObject(BlogPost.class).withId(blogPostId);
 
                             if (isFirstPageFirstLoad) {
                                 blogList.add(blog_post);
@@ -129,7 +132,7 @@ public class FragmentHome extends Fragment {
 
     public void loadMorePost()
     {
-        Query nextQuery = firebaseFirestore.collection("Posts").orderBy("time_stamp", Query.Direction.DESCENDING).startAfter(lastVisible).limit(3);
+        Query nextQuery = firebaseFirestore.collection("Posts").orderBy("time_stamp", Query.Direction.DESCENDING).startAfter(lastVisible).limit(10);
 
         nextQuery.addSnapshotListener(getActivity(),new EventListener<QuerySnapshot>() {
             @Override
@@ -142,8 +145,10 @@ public class FragmentHome extends Fragment {
                     {
                         if (doc.getType() == DocumentChange.Type.ADDED)
                         {
-                            BlogPost blog_post = doc.getDocument().toObject(BlogPost.class);
+                            String blogPostId = doc.getDocument().getId();
+                            BlogPost blog_post = doc.getDocument().toObject(BlogPost.class).withId(blogPostId);
                             blogList.add(blog_post);
+
                             blogRecyclerAdapter.notifyDataSetChanged();
                         }
                     }

@@ -88,7 +88,7 @@ public class SetupActivity extends AppCompatActivity {
                 {
                     if (task.getResult().exists())
                     {
-                        Toast.makeText(SetupActivity.this, "Please Wait, retrieving the data", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(SetupActivity.this, "Please Wait, retrieving the data", Toast.LENGTH_SHORT).show();
                         String name = task.getResult().getString("name");
                         String image = task.getResult().getString("image");
 
