@@ -5,13 +5,17 @@
     <item
         android:id="@+id/bottom_action_home"
         android:icon="@drawable/outline_home_black_24_dp"
-        android:title="Home" />
+        android:title="@string/home" />
     <item
-        android:id="@+id/bottom_action_notification"
-        android:icon="@drawable/outline_notifications_black_24_dp"
-        android:title="Notification" />
+        android:id="@+id/bottom_new_post_add"
+        android:icon="@drawable/add_new_post_bottom_menu"
+        android:title="@string/new_post" />
+<!--    <item-->
+<!--        android:id="@+id/bottom_action_notification"-->
+<!--        android:icon="@drawable/outline_notifications_black_24_dp"-->
+<!--        android:title="Notification" />-->
     <item
         android:id="@+id/bottom_action_account"
         android:icon="@drawable/outline_person_black_24_dp"
-        android:title="Account" />
+        android:title="@string/account" />
 </menu>

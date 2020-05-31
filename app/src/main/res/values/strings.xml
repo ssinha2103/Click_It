@@ -24,6 +24,9 @@
     <string name="blog_post_date">Blog Post Date</string>
     <string name="post_title">Post Title</string>
     <string name="_0_likes">0 Likes</string>
+    <string name="new_post">New Post</string>
+    <string name="account">Account</string>
+    <string name="home">Home</string>
 
 
 </resources>

@@ -83,13 +83,16 @@ public class MainActivity extends AppCompatActivity {
                             replaceFragment(fragmentHome);
                             return true;
 
-//                        case R.id.bottom_action_notification:
-//                            replaceFragment(notificationFragment);
-//                            return true;
+                        case R.id.bottom_new_post_add:
+                            Intent new_post_intent = new Intent(MainActivity.this, NewPostActivity.class);
+                            startActivity(new_post_intent);
+                            return true;
 //
-//                        case R.id.bottom_action_account:
-//                            replaceFragment(accountFragment);
-//                            return true;
+                        case R.id.bottom_action_account:
+                            Intent intent = new Intent(MainActivity.this, SetupActivity.class);
+                            startActivity(intent);
+                            finish();
+                            return true;
 
                         default:
                             return false;

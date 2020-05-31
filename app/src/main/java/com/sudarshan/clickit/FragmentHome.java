@@ -86,38 +86,41 @@ public class FragmentHome extends Fragment {
                 }
             });
 
-            Query firstQuery = firebaseFirestore.collection("Posts").orderBy("time_stamp", Query.Direction.DESCENDING).limit(10);
+            Query firstQuery = firebaseFirestore.collection("Posts").orderBy("time_stamp", Query.Direction.DESCENDING).limit(3);
 
             firstQuery.addSnapshotListener(getActivity(),new EventListener<QuerySnapshot>() {
                 @Override
                 public void onEvent(QuerySnapshot queryDocumentSnapshots, FirebaseFirestoreException e) {
 
-//                    if (isFirstPageFirstLoad)
-//                    {
-//                        lastVisible = queryDocumentSnapshots.getDocuments().get(queryDocumentSnapshots.size() -1);
-//                    }
+                    if (isFirstPageFirstLoad)
+                    {
+                        lastVisible = queryDocumentSnapshots.getDocuments().get(queryDocumentSnapshots.size() -1);
+                    }
                     lastVisible = queryDocumentSnapshots.getDocuments().get(queryDocumentSnapshots.size() -1);
 
-                    for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges())
-                    {
-                        if (doc.getType() == DocumentChange.Type.ADDED)
+                    if (queryDocumentSnapshots != null){
+
+                        for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges())
                         {
-                            String blogPostId = doc.getDocument().getId();
+                            if (doc.getType() == DocumentChange.Type.ADDED)
+                            {
+                                String blogPostId = doc.getDocument().getId();
 
-                            BlogPost blog_post = doc.getDocument().toObject(BlogPost.class).withId(blogPostId);
+                                BlogPost blog_post = doc.getDocument().toObject(BlogPost.class).withId(blogPostId);
 
-                            if (isFirstPageFirstLoad) {
-                                blogList.add(blog_post);
-                            }else {
-                                blogList.add(0, blog_post);
+                                if (isFirstPageFirstLoad) {
+                                    blogList.add(blog_post);
+                                }else {
+                                    blogList.add(0, blog_post);
+                                }
+
+
+                                blogRecyclerAdapter.notifyDataSetChanged();
                             }
-
-
-                            blogRecyclerAdapter.notifyDataSetChanged();
                         }
-                    }
 
-                    isFirstPageFirstLoad = false;
+                        isFirstPageFirstLoad = false;
+                    }
                 }
             });
         }
@@ -132,7 +135,7 @@ public class FragmentHome extends Fragment {
 
     public void loadMorePost()
     {
-        Query nextQuery = firebaseFirestore.collection("Posts").orderBy("time_stamp", Query.Direction.DESCENDING).startAfter(lastVisible).limit(10);
+        Query nextQuery = firebaseFirestore.collection("Posts").orderBy("time_stamp", Query.Direction.DESCENDING).startAfter(lastVisible).limit(3);
 
         nextQuery.addSnapshotListener(getActivity(),new EventListener<QuerySnapshot>() {
             @Override
